@@ -42,7 +42,7 @@ create table est_membre (
 create table conference (
     conference_id varchar(60) primary key,
     conference_nom varchar(60) not null,
-    conference_site_web varchar(60),
+    conference_site_web varchar(1000),
     conference_description varchar(1000)
     );
 
@@ -71,7 +71,7 @@ create table journal (
     journal_nom varchar(60) not null,
     journal_description varchar(500),
     journal_theme varchar(60),
-    journal_site_web varchar(60),
+    journal_site_web varchar(1000),
     journal_consignes varchar(10000)
       ) ;
 
@@ -87,16 +87,7 @@ create table hors_serie (
     );
 
 
-create table fichier (
-    fichier_id varchar(60) primary key,
-    fichier_nom varchar(60) not null,
-    fichier_contenu bytea not null,
-    fichier_commentaire varchar(60),
-    fichier_article_id varchar(60),
-    constraint fichier_fichier_article_id_fkey foreign key (fichier_article_id)
-        references article (article_id) match simple
-        on update no action on delete no action
-      );
+
 
 
 create table statut (
@@ -128,8 +119,20 @@ create table article (
 	    on update no action on delete no action,
 	constraint article_article_edition_conf_id_fkey foreign key (article_edition_conf_id)
 		references edition_conf (edition_conf_id) match simple
-	    on update no action on delete no action,
+	    on update no action on delete no action
 	);
+
+
+create table fichier (
+    fichier_id varchar(60) primary key,
+    fichier_nom varchar(60) not null,
+    fichier_contenu bytea not null,
+    fichier_commentaire varchar(60),
+    fichier_article_id varchar(60),
+    constraint fichier_fichier_article_id_fkey foreign key (fichier_article_id)
+        references article (article_id) match simple
+        on update no action on delete no action
+      );
 
 
 create table participation (
