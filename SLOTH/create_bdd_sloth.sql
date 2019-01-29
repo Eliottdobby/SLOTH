@@ -10,6 +10,7 @@ drop table if exists statut cascade;
 drop table if exists hors_serie cascade;
 drop table if exists article cascade;
 drop table if exists ordre cascade;
+drop table if exists participation cascade; 
 
 
 create table utilisateur (
@@ -125,15 +126,16 @@ create table article (
 	);
 
 
-create table ordre (
-	ordre_utilisateur_id varchar(60) not null,
-	ordre_article_id varchar (60) not null,
-	ordre_ordre integer not null,
-	primary key (ordre_utilisateur_id, ordre_article_id),
-	constraint ordre_ordre_utilisateur_id_fkey foreign key (ordre_utilisateur_id)
+create table participation (
+	participation_utilisateur_id varchar(60) not null,
+	participation_article_id varchar (60) not null,
+	participation_ordre integer not null,
+	participation_fonction varchar(60) not null,
+	primary key (participation_utilisateur_id, participation_article_id),
+	constraint participation_participation_utilisateur_id_fkey foreign key (participation_utilisateur_id)
 		references utilisateur (utilisateur_id)  match simple
 	    on update no action on delete no action,
-	constraint ordre_ordre_article_id_fkey foreign key (ordre_article_id)
+	constraint participation_participation_article_id_fkey foreign key (participation_article_id)
 	    references article (article_id) match simple
 	    on update no action on delete no action
 	);
