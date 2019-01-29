@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-2" id="logo"> <img src='logo.png' alt='paresseux' > </img> </div>
             <div class="col-8 "> <h1> SLOTH </h1> </div>
-            <div class="col-2" id="user"> <img src='person.png' alt='people'> </img > Username </div>
+            <div class="col-2" id="user"> <img src='images/person.png' alt='people'> </img > Username </div>
         </div>
 
     </header>
@@ -32,36 +32,47 @@
 
 
 
-        <div class="col"> <h2> Modifier communication </h2> </div>
+        <reste class="col-9">
+            <div class="col-10"> <h2> Modifier une communication </h2> </div>
+            
+            <div class="row" id="titre"> 
 
-    </div>
-
-        <reste class="row">
-
-            <div class="col">
-                <div class="form-group">
-                    <label for="usr">Titre</label>
-                    <input type="text" class="form-control" id="usr">
-                </div>
-            </div>
-            <div class="col">
-                <label for='nomconf'> Nom du journal </label>
-                <select id="nomconf">
-                    <option value="fse">Fast Software Encryption</option>
-                    <option value="coding">Workshop on Coding and Cryptography</option>
-                    <option value="arythm">Arithmetic Geometry</option>
-                    <option value="crypto">Theoric Methods in Cryptology</option>      
-                </select> 
-            </div>
-
-        </reste>
+                <div class="col-5" id="nom"> 
+                    <div class="form-group">
+                      <label for="usr">Titre </label>
+                      <input type="text" class="form-control" id="usr">
+                  </div>
+                  <div class="form-group">
+                      <label for="usr">Thème </label>
+                      <input type="text" class="form-control" id="usr">
+                  </div>
+                  <div class="form-group">
+                      <label for="comment">Description</label>
+                      <textarea class="form-control" rows="5" id="comment"></textarea>
+                  </div>
+              </div>
 
 
+              
+          </div>
 
 
 
+          <div class="row" id="gp"> <div class="col-3" id="nom"> 
+            <div class="form-group">
+              <label for="usr">Titre </label>
+              <input type="text" class="form-control" id="usr">
+          </div>
+      </div> <div class="col-6" id="description"> Description du groupe </div> </div>
 
 
 
+      <div class="row" id="gp"> <div class="col-3" id="nom"> Nom Groupe 3 </div> <div class="col-6" id="description"> Description du groupe </div> </div>
+      <div class="row" id="gp"> <div class="col-3" id="nom"> Nom Groupe 4 </div> <div class="col-6" id="description"> Description du groupe </div> </div>
+  </reste>
+
+
+
+</div>
 
 </body>

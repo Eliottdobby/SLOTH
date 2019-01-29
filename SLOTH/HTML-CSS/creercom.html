@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+
+<html>
+    <head>
+        	<meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+            <link rel="stylesheet" href="stylecreercom.css"/>
+            <title> Créer communication </title>
+    </head>
+    <body>
+              <header>
+                <img src='logo.png' alt='paresseux' > </img>
+                <h1> SLOTH </h1>
+            </header>
+              <aside>
+                 
+                <p>
+                <a href='tableaudebord.html'> Tableau de Bord </a> <br>
+                <a href='mespub.html'> Mes Publications </a> <br>
+                <a href='catalogueart.html'> Catalogue Articles</a> <br>
+                <a href='cataloguejournal.html'> Catalogue Revues </a> <br>
+                <a href='catalogueconf.html'> Catalogue Conférences </a> <br>
+                <a href='groupes.html'> Groupes </a> <br>
+                </p>
+            </aside>
+            <article>
+                <h2> Créer une communication pour une conférence </h2>
+                <div class='hautbas'>
+                    <div class = 'twoparts'>
+                        <div class='formulaire'> 
+                            <div class='champ1'>
+                                <label for='titre'> Titre </label>
+                                <input type='text' id='titre' value='Required Field' aria-required=true/> 
+                            </div>
+                            <div class='champ'>
+                                <label for='theme'> Thème </label> 
+                                <input type='text' id='theme' value='Type something' aria-required=false/> 
+                            </div>
+                            <div class='champ'>
+                                <label for='description'> Description </label> <br>
+                                <textarea type='message' id='description' aria-required=false></textarea>
+                            </div>
+                        </div>
+                        <div class='partdroite'>
+                            <div class='champ1'>
+                                <label for='nomconf'> Nom de la conférence </label>
+                                <select id="nomconf">
+                                    <option value="fse">Fast Software Encryption</option>
+                                    <option value="coding">Workshop on Coding and Cryptography</option>
+                                    <option value="arythm">Arithmetic & Geometry</option>
+                                    <option value="crypto">Theoric Methods in Cryptology</option>      
+                                </select> 
+                            </div>
+                            <div class='champ'>
+                                <label for='deadline'> Deadline soumission </label> 
+                                <input type='text' id='theme' value='Rempli automatiquement' aria-required=true/> 
+                            </div>
+                            <div class='champ'>
+                                <label for='deadline'> Date de soumission </label> 
+                                <input type='text' id='theme' value='Required field' aria-required=true/> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class='enbas'>
+                        <div class=partgauche>
+                            <div id='plus'> <p id=ajouter> Ajouter une première version</p><div id='svp'> + </div></div> 
+                            <div id='plus'><p id=ajouter> Ajouter documents sources </p>  <div id='svp'> + </div> </div> 
+                        </div>
+                        <div class='partbasdroite'>
+                            <p> Ajouter des auteurs </p>
+                            <img src='person.png' alt='bonhomme'></img>
+                           <div id='plus2'> <input type='text' id='nom'/>
+                            <input type='text' id='prenom'/>
+                            <div id='svp2'> + </div> </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
+          
+    </body>
+</html>

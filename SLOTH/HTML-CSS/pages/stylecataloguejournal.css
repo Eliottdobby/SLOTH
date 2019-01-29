@@ -39,4 +39,24 @@ h2{
     margin-top:1.5%;
     font-family: "patuaone";
 }
+#petittexte{
+    color:#36622B;
+
+}
+input{
+    background-color:#729D39;
+}
+
+#revue
+{
+    color:#36622B;
+    background-color:white;
+    height:50px;
+    border-top-width:2px;
+    border-top-style:solid;
+    border-top-color:#36622B;
+    border-bottom-width:2px;
+    border-bottom-style:solid;
+    border-bottom-color:#36622B;
+}
 
