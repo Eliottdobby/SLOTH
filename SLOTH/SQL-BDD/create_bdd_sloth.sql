@@ -45,7 +45,7 @@ create table conference (
     conference_id varchar(60) primary key,
     conference_nom varchar(60) not null,
     conference_site_web varchar(60),
-    conference_description varchar(1000),
+    conference_description varchar(1000)
     );
 
 
@@ -89,7 +89,7 @@ create table hors_serie (
 create table fichier (
     fichier_id varchar(60) primary key,
     fichier_nom varchar(60) not null,
-    fichier_contenu blob(16M) not null
+    fichier_contenu bytea not null
       );
 
 
