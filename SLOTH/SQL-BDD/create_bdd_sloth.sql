@@ -51,17 +51,20 @@ create table conference (
 
 create table edition_conf ( 
     edition_conf_id varchar(60) primary key,
+    edition_conf_nom varchar(60),
     edition_conf_description varchar(1000),
     edition_conf_conference_id varchar(60) not null,
     constraint edition_conf_edition_conf_conference_id_fkey foreign key (edition_conf_conference_id)
 		references conference (conference_id) match simple
         on update no action on delete no action,
-    edition_conf_lieu varchar(60),
-    edition_conf_date date,
+    edition_conf_ville varchar(60),
+    edition_conf_date_debut date,
+    edition_conf_date_fin date,
     edition_conf_date_limite_soumission date,
     edition_conf_consignes varchar(10000),
     edition_conf_langue varchar(60),
-    edition_conf_pays varchar(60)
+    edition_conf_pays varchar(60),
+    edition_conf_site varchar(1000)
     );
 
 
@@ -89,7 +92,8 @@ create table hors_serie (
 create table fichier (
     fichier_id varchar(60) primary key,
     fichier_nom varchar(60) not null,
-    fichier_contenu bytea not null
+    fichier_contenu bytea not null,
+    fichier_commentaire varchar(60)
       );
 
 
