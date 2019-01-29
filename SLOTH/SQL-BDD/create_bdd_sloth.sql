@@ -4,12 +4,10 @@ drop table if exists est_membre cascade;
 drop table if exists conference cascade;
 drop table if exists edition_conf cascade;
 drop table if exists journal cascade;
-drop table if exists version cascade;
 drop table if exists fichier cascade;
 drop table if exists statut cascade;
 drop table if exists hors_serie cascade;
 drop table if exists article cascade;
-drop table if exists ordre cascade;
 drop table if exists participation cascade; 
 
 
