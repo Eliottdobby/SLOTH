@@ -45,7 +45,7 @@ create table conference (
     conference_id varchar(60) primary key,
     conference_nom varchar(60) not null,
     conference_site_web varchar(60),
-    conference_description varchar(1000)
+    conference_description varchar(1000),
     );
 
 
@@ -56,10 +56,12 @@ create table edition_conf (
     constraint edition_conf_edition_conf_conference_id_fkey foreign key (edition_conf_conference_id)
 		references conference (conference_id) match simple
         on update no action on delete no action,
-    edition_lieu varchar(60),
-    edition_date date,
-    edition_date_limite_soumission date,
-    edition_consignes varchar(10000)
+    edition_conf_lieu varchar(60),
+    edition_conf_date date,
+    edition_conf_date_limite_soumission date,
+    edition_conf_consignes varchar(10000),
+    edition_conf_langue varchar(60),
+    edition_conf_pays varchar(60)
     );
 
 
@@ -93,7 +95,8 @@ create table fichier (
 
 create table statut (
     statut_id varchar(60) primary key,
-    statut_nom varchar(60) not null
+    statut_nom varchar(60) not null,
+    statut_commentaire varchar(500)
       );
 
 
@@ -106,7 +109,8 @@ create table article (
     article_fichier_id varchar(60) not null, 
     article_lien varchar(2000),
     article_mot_cle varchar(60),
-    article_theme varchar(60),
+    article_resume varchar(1000),
+    article_date_archivage date,
     article_date_limite_soumission date,
 	constraint article_article_journal_id_fkey foreign key (article_journal_id)
 		references journal (journal_id) match simple
