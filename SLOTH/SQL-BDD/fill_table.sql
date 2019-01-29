@@ -84,7 +84,12 @@ insert into hors_serie (hors_serie_id,hors_serie_journal_id, hors_serie_consigne
 	 '2019-09-09');
 
 
+insert into article ()
+	values ();
 
+insert into participation ()
+	values ();
 
-
+insert into fichier ()
+	values ();
 
