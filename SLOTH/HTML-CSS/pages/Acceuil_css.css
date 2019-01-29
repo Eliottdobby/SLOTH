@@ -1,20 +1,33 @@
 body{
 	background-color: #F0F2D6;
 	color:#36622B;
-	display:flex;
-	flex-wrap:wrap;
 }
 
-#cartouche{
-	background-color: #729D39;
-	border-style:solid;
-	border-color :#729D39;
 
+button{
 
-	color: #ffffff;
+	color:#36622B;
+
+}
+
+h2{
+
 
 
 }
+
+#texte{
+	text-align: center;
+	margin-top: 2%;
+
+
+}
+
+
+
+
+
+
 
 .row{
 
@@ -23,11 +36,3 @@ body{
 
 }
 
-button{
-
-	color:#36622B;
-
-
-
-
-}
