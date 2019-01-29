@@ -93,7 +93,11 @@ create table fichier (
     fichier_id varchar(60) primary key,
     fichier_nom varchar(60) not null,
     fichier_contenu bytea not null,
-    fichier_commentaire varchar(60)
+    fichier_commentaire varchar(60),
+    fichier_article_id varchar(60),
+    constraint fichier_fichier_article_id_fkey foreign key (fichier_article_id)
+        references article (article_id) match simple
+        on update no action on delete no action
       );
 
 
@@ -110,7 +114,6 @@ create table article (
     article_hors_serie_id varchar(60),
     article_statut_id varchar(60) not null,
     article_edition_conf_id varchar(60),
-    article_fichier_id varchar(60) not null, 
     article_lien varchar(2000),
     article_mot_cle varchar(60),
     article_resume varchar(1000),
@@ -128,9 +131,6 @@ create table article (
 	constraint article_article_edition_conf_id_fkey foreign key (article_edition_conf_id)
 		references edition_conf (edition_conf_id) match simple
 	    on update no action on delete no action,
-	constraint article_article_fichier_id_fkey foreign key (article_fichier_id)
-		references fichier (fichier_id) match simple
-	    on update no action on delete no action
 	);
 
 
