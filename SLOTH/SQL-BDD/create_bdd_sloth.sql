@@ -5,6 +5,7 @@ drop table if exists conference cascade;
 drop table if exists edition_conf cascade;
 drop table if exists journal cascade;
 drop table if exists version cascade;
+drop table if exists fichier cascade;
 drop table if exists statut cascade;
 drop table if exists hors_serie cascade;
 drop table if exists article cascade;
@@ -27,15 +28,15 @@ create table groupe (
 
 
 create table est_membre (
-est_membre_groupe_id varchar (60) not null,
-est_membre_utilisateur_id varchar(60) not null,
-primary key (est_membre_groupe_id, est_membre_utilisateur_id),
-constraint est_membre_est_membre_groupe_id_fkey foreign key (est_membre_groupe_id)
-references groupe (groupe_id) match simple
-           on update no action on delete no action,
+	est_membre_groupe_id varchar (60) not null,
+	est_membre_utilisateur_id varchar(60) not null,
+	primary key (est_membre_groupe_id, est_membre_utilisateur_id),
+	constraint est_membre_est_membre_groupe_id_fkey foreign key (est_membre_groupe_id)
+		references groupe (groupe_id) match simple
+        on update no action on delete no action,
      constraint est_membre_est_membre_utilisateur_id_fkey foreign key (est_membre_utilisateur_id)
-              references utilisateur (utilisateur_id) match simple
-              on update no action on delete no action
+        references utilisateur (utilisateur_id) match simple
+        on update no action on delete no action
 );
 
 
@@ -52,8 +53,8 @@ create table edition_conf (
     edition_conf_description varchar(1000),
     edition_conf_conference_id varchar(60) not null,
     constraint edition_conf_edition_conf_conference_id_fkey foreign key (edition_conf_conference_id)
-references conference (conference_id) match simple
-           on update no action on delete no action,
+		references conference (conference_id) match simple
+        on update no action on delete no action,
     edition_lieu varchar(60),
     edition_date date,
     edition_date_limite_soumission date,
@@ -75,16 +76,17 @@ create table hors_serie (
     hors_serie_id varchar(60) primary key,
     hors_serie_journal_id varchar(60) not null,
     hors_serie_consignes varchar(10000),
-constraint hors_serie_hors_serie_journal_id_fkey foreign key (hors_serie_journal_id)
-references journal (journal_id) match simple
-           on update no action on delete no action,
+	constraint hors_serie_hors_serie_journal_id_fkey foreign key (hors_serie_journal_id)
+		references journal (journal_id) match simple
+	    on update no action on delete no action,
     hors_serie_date_limite_soumission date
     );
 
 
-create table version (
-    version_id varchar(60) primary key,
-    version_nom varchar(60) not null
+create table fichier (
+    fichier_id varchar(60) primary key,
+    fichier_nom varchar(60) not null,
+    fichier_contenu blob(16M) not null
       );
 
 
@@ -100,36 +102,39 @@ create table article (
     article_hors_serie_id varchar(60),
     article_statut_id varchar(60) not null,
     article_edition_conf_id varchar(60),
-    article_version_id varchar(60) not null, 
+    article_fichier_id varchar(60) not null, 
     article_lien varchar(2000),
-constraint article_article_journal_id_fkey foreign key (article_journal_id)
-references journal (journal_id) match simple
-           on update no action on delete no action,
-    constraint article_article_hors_serie_id_fkey foreign key (article_hors_serie_id)
-references hors_serie (hors_serie_id) match simple
-           on update no action on delete no action,
-    constraint article_article_statut_id_fkey foreign key (article_statut_id)
-references statut (statut_id) match simple
-           on update no action on delete no action,
-    constraint article_article_edition_conf_id_fkey foreign key (article_edition_conf_id)
-references edition_conf (edition_conf_id) match simple
-           on update no action on delete no action,
-    constraint article_article_version_id_fkey foreign key (article_version_id)
-references version (version_id) match simple
-           on update no action on delete no action
-);
+    article_mot_cle varchar(60),
+    article_theme varchar(60),
+    article_date_limite_soumission date,
+	constraint article_article_journal_id_fkey foreign key (article_journal_id)
+		references journal (journal_id) match simple
+	    on update no action on delete no action,
+	constraint article_article_hors_serie_id_fkey foreign key (article_hors_serie_id)
+		references hors_serie (hors_serie_id) match simple
+	    on update no action on delete no action,
+	constraint article_article_statut_id_fkey foreign key (article_statut_id)
+		references statut (statut_id) match simple
+	    on update no action on delete no action,
+	constraint article_article_edition_conf_id_fkey foreign key (article_edition_conf_id)
+		references edition_conf (edition_conf_id) match simple
+	    on update no action on delete no action,
+	constraint article_article_fichier_id_fkey foreign key (article_fichier_id)
+		references fichier (fichier_id) match simple
+	    on update no action on delete no action
+	);
 
 
 create table ordre (
-ordre_utilisateur_id varchar(60) not null,
-ordre_article_id varchar (60) not null,
-ordre_ordre integer not null,
-primary key (ordre_utilisateur_id, ordre_article_id),
-constraint ordre_ordre_utilisateur_id_fkey foreign key (ordre_utilisateur_id)
-references utilisateur (utilisateur_id)  match simple
-           on update no action on delete no action,
-     constraint ordre_ordre_article_id_fkey foreign key (ordre_article_id)
-              references article (article_id) match simple
-              on update no action on delete no action
-);
+	ordre_utilisateur_id varchar(60) not null,
+	ordre_article_id varchar (60) not null,
+	ordre_ordre integer not null,
+	primary key (ordre_utilisateur_id, ordre_article_id),
+	constraint ordre_ordre_utilisateur_id_fkey foreign key (ordre_utilisateur_id)
+		references utilisateur (utilisateur_id)  match simple
+	    on update no action on delete no action,
+	constraint ordre_ordre_article_id_fkey foreign key (ordre_article_id)
+	    references article (article_id) match simple
+	    on update no action on delete no action
+	);
 
